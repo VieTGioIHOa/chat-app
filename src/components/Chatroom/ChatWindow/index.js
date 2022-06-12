@@ -5,7 +5,6 @@ import { AppContext } from "../../../context/AppProvider"
 import Header from "./Header";
 import Content from "./Content";
 import NotRoom from '../../NotRoom'
-import NotChatWithser from '../../NotChatWithUser'
 function ChatWindow() {
 
     const { selectedRoom, selectedUserId } = React.useContext(AppContext)
