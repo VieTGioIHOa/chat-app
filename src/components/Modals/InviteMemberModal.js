@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/AuthProvider'
 import { useForm } from 'react-hook-form'
 import { db } from '../../firebase/config'
 import { debounce } from 'lodash';
-import { doc, updateDoc, collection } from 'firebase/firestore'
+import { doc, updateDoc } from 'firebase/firestore'
 function DebounceSelect({
     fetchOptions,
     debounceTimeout = 300,

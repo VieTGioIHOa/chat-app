@@ -4,7 +4,6 @@ import useFireStore from '../../../hooks/useFireStore';
 import { AppContext } from '../../../context/AppProvider'
 import { AuthContext } from '../../../context/AuthProvider'
 import NotChatWithUser from '../../NotChatWithUser'
-import NotRoom from '../../NotRoom'
 import { addDocument } from '../../../firebase/service';
 import { collection } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
