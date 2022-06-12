@@ -31,7 +31,7 @@ function Login() {
     return (
         <div className="h-screen w-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 pt-10">
             <div className="m-[auto] text-center bg-yellow-50 w-[400px]  border rounded px-5 py-10 border-slate-200 border-solid">
-                <h2 className="text-[30px] font-bold text-sky-700">VIET CHAT</h2>
+                <h2 className="text-[30px] font-bold text-sky-700">ĐĂNG NHẬP</h2>
                 <div>
                     <button
                         onClick={handleLogin}
