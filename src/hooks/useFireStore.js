@@ -25,6 +25,7 @@ const useFireStore = (collectionName, condition) => {
         })
         return () => unsubcribe;
     }, [collectionName, condition])
+
     return document
 }
 

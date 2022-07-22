@@ -9,7 +9,7 @@ import InviteMemberModal from './components/Modals/InviteMemberModal';
 
 function App() {
   return (
-    <div className="relative transition ease-in-out delay-150">
+    <div className="container relative transition ease-in-out delay-150">
       <Routes>
         <Route path="/" element={<Chatroom />} />
         <Route path="/login" element={<Login />} />

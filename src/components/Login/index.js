@@ -13,7 +13,6 @@ function Login() {
     const handleLogin = async () => {
         const data = await signInWithPopup(auth, provider)
         const { user, providerId } = data
-        console.log(user)
         // Add a new document in collection "users"
         if (getAdditionalUserInfo(data).isNewUser) {
             const firebaseCollectionRef = collection(db, "users")

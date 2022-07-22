@@ -14,12 +14,16 @@ function ChatWithUser() {
     const { selectedRoomId, selectedUserId, userOnline } = React.useContext(AppContext)
 
     const [messageWithUser, setMessageWithUser] = React.useState('')
+
     const nameUserChating = userOnline.filter(user => user.uid === selectedUserId)[0]?.displayName
+
     const photoUserChating = userOnline.filter(user => user.uid === selectedUserId)[0]?.photoURL
+
     const idUserChating = userOnline.filter(user => user.uid === selectedUserId)[0]?.uid
+
     const { displayName, photoURL, uid } = React.useContext(AuthContext)
 
-    const collectionName = (idUserChating + uid).split('').sort().join('')
+    // const collectionName = (idUserChating + uid).split('').sort().join('')
 
     const inputRef = React.useRef()
 
@@ -38,7 +42,7 @@ function ChatWithUser() {
         e.preventDefault()
 
         if (messageWithUser) {
-            addDocument(collection(db, collectionName),
+            addDocument(collection(db, 'chatWithUser'),
                 {
                     text: messageWithUser,
                     photoURL,
@@ -56,11 +60,10 @@ function ChatWithUser() {
     const messageWithUserCondition = React.useMemo(() => ({
         fieldName: 'uids',
         operator: 'array-contains',
-        compareValue: selectedUserId
+        compareValue: selectedUserId, uid
     }), [selectedUserId])
 
-    const chatWithUser = useFireStore(collectionName, messageWithUserCondition)
-
+    const chatWithUser = useFireStore('chatWithUser', messageWithUserCondition)
     return (
         selectedUserId ?
             <div>
@@ -78,7 +81,7 @@ function ChatWithUser() {
                                 chatWithUser.map((ele, id) => (
                                     ele.uid === uid ?
                                         <Tippy
-                                            key={uid}
+                                            key={ele.createAt}
                                             placement='left'
                                             content={
                                                 <p className="text-[12px] text-slate-400">{formatDate(ele.createAt?.seconds)}</p>
@@ -100,7 +103,7 @@ function ChatWithUser() {
                                             content={
                                                 <p className="text-[12px] text-slate-400 ml-3">{formatDate(ele.createAt?.seconds)}</p>
                                             }>
-                                            <div className="mt-1 mr-auto bg-slate-200 py-2 px-3 rounded-lg" key={id}>
+                                            <div className="mt-1 mr-auto bg-slate-200 py-2 px-3 rounded-lg" key={ele.createAt}>
                                                 <div className="flex items-center">
                                                     {ele.photoURL ? <img alt='noimg' className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src={ele.photoURL} />
                                                         : <div className="h-8 w-8 rounded-full text-white flex items-center justify-center bg-orange-500">{ele.displayName.charAt(0).toUpperCase()}</div>}

@@ -11,8 +11,6 @@ import { collection } from 'firebase/firestore'
 export default function UserOnline() {
     const { userOnline } = React.useContext(AppContext)
 
-    console.log(userOnline)
-
     const chatWithUser = useFireStore('chatWithUser')
 
     const { uid } = React.useContext(AuthContext)
@@ -23,14 +21,14 @@ export default function UserOnline() {
         setSelectedRoomId('')
     }
 
-    React.useEffect(() => {
-        if (!chatWithUser.map((ele) => ele.uid).includes(selectedUserId) && selectedUserId)
-            addDocument(collection(db, 'chatWithUser'), ...userOnline.filter(user => user.uid === selectedUserId))
-        return
-    }, [selectedUserId])
+    // React.useEffect(() => {
+    //     if (!chatWithUser.map((ele) => ele.uid).includes(selectedUserId) && selectedUserId)
+    //         addDocument(collection(db, 'chatWithUser'), ...userOnline.filter(user => user.uid === selectedUserId))
+    //     return
+    // }, [selectedUserId])
 
     return (
-        <div className='p-5 border-l border-slate border-solid h-screen w-[340px]'>
+        <div className='p-5 border-l border-slate border-solid h-screen w-[300px]'>
             <div className="border-b border-b-solid border-b-stone-700 pb-5">
                 <h2 className="font-bold text-xl">Đang hoạt động</h2>
             </div>
