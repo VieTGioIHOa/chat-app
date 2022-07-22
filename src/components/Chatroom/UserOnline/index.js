@@ -11,6 +11,8 @@ import { collection } from 'firebase/firestore'
 export default function UserOnline() {
     const { userOnline } = React.useContext(AppContext)
 
+    console.log(userOnline)
+
     const chatWithUser = useFireStore('chatWithUser')
 
     const { uid } = React.useContext(AuthContext)

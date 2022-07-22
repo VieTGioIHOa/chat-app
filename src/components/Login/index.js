@@ -1,19 +1,19 @@
 import React from "react";
 
-import { FacebookAuthProvider, signInWithPopup, getAdditionalUserInfo } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo } from "firebase/auth";
 import { collection } from "firebase/firestore";
 
 import { app, db } from '../../firebase/config'
 import { auth } from '../../context/AuthProvider'
 import { addDocument, generateKeywords } from '../../firebase/service'
-const provider = new FacebookAuthProvider();
 
+const provider = new GoogleAuthProvider();
 
 function Login() {
     const handleLogin = async () => {
         const data = await signInWithPopup(auth, provider)
         const { user, providerId } = data
-
+        console.log(user)
         // Add a new document in collection "users"
         if (getAdditionalUserInfo(data).isNewUser) {
             const firebaseCollectionRef = collection(db, "users")
@@ -36,7 +36,7 @@ function Login() {
                     <button
                         onClick={handleLogin}
                         className="p-2 text-xl text-white rounded-xl w-[100%] mt-5 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-                        Đăng nhập bằng Facebook
+                        Đăng nhập bằng Google
                     </button>
                 </div>
             </div>

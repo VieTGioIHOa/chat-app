@@ -1,6 +1,7 @@
 import { addDoc, serverTimestamp } from "firebase/firestore";
-export const addDocument = (collection, data) => {
-  addDoc(collection, {
+export const addDocument = async (collection, data) => {
+  console.log(data)
+  await addDoc(collection, {
     ...data,
     createAt: serverTimestamp()
   });
