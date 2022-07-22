@@ -23,7 +23,6 @@ function ChatWithUser() {
 
     const { displayName, photoURL, uid } = React.useContext(AuthContext)
 
-    // const collectionName = (idUserChating + uid).split('').sort().join('')
 
     const inputRef = React.useRef()
 

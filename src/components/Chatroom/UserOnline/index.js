@@ -1,31 +1,20 @@
 import React from 'react'
 
-import useFireStore from '../../../hooks/useFireStore';
 import { AuthContext } from '../../../context/AuthProvider';
 import { AppContext } from '../../../context/AppProvider';
-import { addDocument } from '../../../firebase/service';
-import { db } from '../../../firebase/config';
-import { collection } from 'firebase/firestore'
 
 
 export default function UserOnline() {
     const { userOnline } = React.useContext(AppContext)
 
-    const chatWithUser = useFireStore('chatWithUser')
 
     const { uid } = React.useContext(AuthContext)
-    const { selectedUserId, setSelectedUserId, setSelectedRoomId } = React.useContext(AppContext)
+    const { setSelectedUserId, setSelectedRoomId } = React.useContext(AppContext)
 
     const handleChatWithUser = (user) => {
         setSelectedUserId(user.uid)
         setSelectedRoomId('')
     }
-
-    // React.useEffect(() => {
-    //     if (!chatWithUser.map((ele) => ele.uid).includes(selectedUserId) && selectedUserId)
-    //         addDocument(collection(db, 'chatWithUser'), ...userOnline.filter(user => user.uid === selectedUserId))
-    //     return
-    // }, [selectedUserId])
 
     return (
         <div className='p-5 border-l border-slate border-solid h-screen w-[300px]'>
