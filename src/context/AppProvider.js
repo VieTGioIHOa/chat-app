@@ -47,28 +47,26 @@ function AppProvider({ children }) {
             });
     }
     return (
-        <div>
-            <AppContext.Provider
-                value={{
-                    selectedUserId,
-                    setSelectedUserId,
-                    userOnline,
-                    rooms,
-                    isAddRoomHide,
-                    setIsAddRoomHide,
-                    selectedRoomId,
-                    setSelectedRoomId,
-                    selectedRoom,
-                    members,
-                    isInviteMemberModalHide,
-                    setIsInviteMemberModalHide,
-                    fetchUserList,
-                    valueInviteMember,
-                    setValueInviteMember
-                }}>
-                {children}
-            </AppContext.Provider>
-        </div>
+        <AppContext.Provider
+            value={{
+                selectedUserId,
+                setSelectedUserId,
+                userOnline,
+                rooms,
+                isAddRoomHide,
+                setIsAddRoomHide,
+                selectedRoomId,
+                setSelectedRoomId,
+                selectedRoom,
+                members,
+                isInviteMemberModalHide,
+                setIsInviteMemberModalHide,
+                fetchUserList,
+                valueInviteMember,
+                setValueInviteMember
+            }}>
+            {children}
+        </AppContext.Provider>
     )
 }
 

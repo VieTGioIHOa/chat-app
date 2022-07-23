@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
                 })
                 setLoading(false)
                 navigate('/')
-            }else {
+            } else {
                 setLoading(false)
                 navigate('/login')
             }
@@ -32,14 +32,12 @@ function AuthProvider({ children }) {
         return () => {
             unsubscribe()
         }
-    },[])
+    }, [])
 
     return (
-        <div>
-            <AuthContext.Provider value={user}>
-                {isLoading? <Loading/> :children}
-            </AuthContext.Provider>
-        </div>
+        <AuthContext.Provider value={user}>
+            {isLoading ? <Loading /> : children}
+        </AuthContext.Provider>
     )
 }
 

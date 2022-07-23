@@ -11,7 +11,7 @@ function ChatWindow() {
 
     return (
         selectedRoom ?
-            <div className="h-screen px-5 pb-7 flex flex-col">
+            <div className="h-screen px-5 pb-2 flex flex-col">
                 <Header />
                 <Content />
             </div>

@@ -66,7 +66,7 @@ function ChatWithUser() {
     return (
         selectedUserId ?
             <div>
-                <div className="flex flex-col h-screen pt-5 px-10 pb-7">
+                <div className="flex flex-col h-screen pt-5 px-5 pb-2">
                     <div className="border-b border-solid border-stone-700 pb-4">
                         <div className="flex items-center cursor-pointer ">
                             {photoUserChating ? <img className="inline-block h-8 w-8 rounded-full" src={photoUserChating} alt="Avata" />

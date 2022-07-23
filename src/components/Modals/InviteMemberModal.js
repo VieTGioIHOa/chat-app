@@ -56,10 +56,13 @@ function DebounceSelect({
             />
             <ul>
                 {options.map(opt => (
-                    <li key={opt.value} onClick={() => {
-                        setValueInviteMember(opt.label)
-                        opt.label = ''
-                    }}>
+                    <li
+                        className="hover:bg-[rgba(0,0,0,0.05)] px-2 py-1 mb-1 cursor-pointer rounded-md"
+                        key={opt.value}
+                        onClick={() => {
+                            setValueInviteMember(opt.label)
+                            opt.label = ''
+                        }}>
                         <img src={opt.photoUrl} />
                         {opt.label}
                     </li>
